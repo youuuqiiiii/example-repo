@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        #gameCanvas {
+            border: 4px solid white;
+            background-color: #1a1a2e;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            cursor: none;
+        }
+
+        .scoreboard {
+            display: flex;
+            justify-content: space-around;
+            width: 600px;
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            gap: 50px;
+        }
+
+        .player-score, .computer-score {
+            text-align: center;
+            flex: 1;
+        }
+
+        .score-label {
+            font-size: 0.8em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .score-value {
+            font-size: 2em;
+            color: #00ff88;
+            text-shadow: 0 0 10px #00ff88;
+        }
+
+        .controls {
+            color: white;
+            text-align: center;
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .controls p {
+            margin-bottom: 8px;
+        }
+
+        .instructions {
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+
+        .reset-button {
+            padding: 10px 30px;
+            font-size: 1em;
+            background-color: #00ff88;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .reset-button:hover {
+            background-color: #00e076;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+        }
+
+        .reset-button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏓 PONG GAME</h1>
+        
+        <div class="scoreboard">
+            <div class="player-score">
+                <div class="score-label">PLAYER</div>
+                <div class="score-value" id="playerScore">0</div>
+            </div>
+            <div class="computer-score">
+                <div class="score-label">COMPUTER</div>
+                <div class="score-value" id="computerScore">0</div>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+        <div class="controls">
+            <p><strong>Controls:</strong></p>
+            <p>↑ UP ARROW or MOUSE UP - Move Paddle Up</p>
+            <p>↓ DOWN ARROW or MOUSE DOWN - Move Paddle Down</p>
+            <p>Click Reset Button or Press SPACE to Start/Reset Game</p>
+        </div>
+
+        <button class="reset-button" id="resetButton">Reset Game</button>
+
+        <div class="instructions">
+            <p>Computer AI controls the right paddle. First to 5 points wins!</p>
+        </div>
+    </div>
+
+    <script src="pong.js"></script>
+</body>
+</html>
